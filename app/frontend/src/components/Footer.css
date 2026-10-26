@@ -1,0 +1,25 @@
+.footer {
+  border-top: 1px solid var(--hairline);
+  padding: 3rem 0 4rem;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer__names {
+  font-size: 15px;
+  color: var(--text);
+}
+
+.footer__sep {
+  margin: 0 0.5rem;
+  color: var(--text-secondary);
+}
+
+.footer__note {
+  font-size: 13px;
+  color: var(--text-secondary);
+}

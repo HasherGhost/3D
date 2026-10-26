@@ -1,0 +1,32 @@
+.upload-zone {
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 150ms ease, background 150ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.upload-zone:hover,
+.upload-zone--over {
+  border-color: var(--accent);
+  background: rgba(180, 83, 42, 0.025);
+}
+
+.upload-zone__main {
+  font-size: 17px;
+  color: var(--text);
+}
+
+.upload-zone__hint {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .upload-zone { padding: 2.5rem 1.25rem; }
+}

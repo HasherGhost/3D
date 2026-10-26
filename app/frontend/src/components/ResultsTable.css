@@ -1,0 +1,42 @@
+.res > .label { display: block; margin-bottom: 2rem; }
+
+.res__table {
+  width: 100%;
+  max-width: 440px;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.res__caption {
+  caption-side: bottom;
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: left;
+  padding-top: 0.85rem;
+}
+
+.res__table th {
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 0 0 0.75rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.res__table th:last-child { text-align: right; }
+
+.res__table td {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--text);
+}
+
+.res__table td:last-child {
+  text-align: right;
+  font-feature-settings: "tnum";
+}
+
+.res__table tr:last-child td { border-bottom: none; }

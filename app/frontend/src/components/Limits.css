@@ -1,0 +1,14 @@
+.limits > .label { display: block; margin-bottom: 2rem; }
+
+.limits__body {
+  max-width: 58ch;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.limits__body em {
+  font-style: italic;
+  color: var(--text);
+}

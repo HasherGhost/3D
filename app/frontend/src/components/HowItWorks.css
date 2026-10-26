@@ -1,0 +1,41 @@
+.how > .label { display: block; margin-bottom: 2.5rem; }
+
+.how__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.how__step {
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.how__num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--text-secondary);
+  padding-top: 0.1em;
+}
+
+.how__title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.how__body {
+  max-width: 58ch;
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .how__step { grid-template-columns: 2rem 1fr; gap: 1rem; }
+}

@@ -1,0 +1,134 @@
+﻿import pathlib
+ROOT = pathlib.Path(r"E:\3D")
+def w(rel, content):
+    p = ROOT / rel
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(content, encoding="utf-8")
+    print("  wrote", rel)
+
+# index.css
+w("app/frontend/src/index.css", """\
+/* -- Fonts (self-hosted via @fontsource, works offline) ------------------- */
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource/instrument-sans/400.css';
+@import '@fontsource/instrument-sans/500.css';
+@import '@fontsource/instrument-sans/600.css';
+
+/* -- Design tokens -------------------------------------------------------- */
+:root {
+  --bg:             #fbfaf4;
+  --text:           #1b1a17;
+  --text-secondary: #6b675e;
+  --hairline:       #e3e0d4;
+  --accent:         #b4532a;   /* terracotta: AI verdict, links, focus rings */
+
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans:  'Instrument Sans', system-ui, sans-serif;
+
+  --max-width:  1080px;
+  --page-pad:   clamp(1.25rem, 5vw, 3.5rem);
+
+  /* Vertical rhythm */
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  6rem;
+  --space-2xl: 8rem;
+}
+
+/* -- Reset ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img, video { display: block; max-width: 100%; }
+button { cursor: pointer; font: inherit; background: none; }
+a { color: inherit; }
+
+/* -- Base ----------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:  var(--bg);
+  color:       var(--text);
+  font-family: var(--font-sans);
+  font-size:   17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* -- Layout --------------------------------------------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin:    0 auto;
+  padding:   0 var(--page-pad);
+}
+
+/* Sections separated by hairlines, big vertical rhythm */
+.section {
+  padding-top:    var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-top: 1px solid var(--hairline);
+}
+
+.section--hero {
+  border-top:  none;
+  padding-top: var(--space-xl);
+}
+
+/* -- Typography helpers --------------------------------------------------- */
+.label {
+  font-size:      12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color:          var(--text-secondary);
+  font-family:    var(--font-sans);
+  font-weight:    500;
+}
+
+/* -- Focus rings ---------------------------------------------------------- */
+:focus-visible {
+  outline:        2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius:  2px;
+}
+
+/* -- Reduced motion ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:       0.01ms !important;
+    transition-duration:      0.01ms !important;
+    animation-iteration-count: 1     !important;
+  }
+}
+""")
+
+# App.jsx
+w("app/frontend/src/App.jsx", """\
+import React from 'react'
+import Nav          from './components/Nav.jsx'
+import Hero         from './components/Hero.jsx'
+import Detector     from './components/Detector.jsx'
+import HowItWorks   from './components/HowItWorks.jsx'
+import ResultsTable from './components/ResultsTable.jsx'
+import Limits       from './components/Limits.jsx'
+import Footer       from './components/Footer.jsx'
+
+export default function App() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <Detector />
+        <HowItWorks />
+        <ResultsTable />
+        <Limits />
+      </main>
+      <Footer />
+    </>
+  )
+}
+""")
+
+print("index.css + App.jsx done.")
