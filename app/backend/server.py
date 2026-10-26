@@ -83,7 +83,7 @@ if STATIC.exists():
         app.mount("/assets", StaticFiles(directory=str(assets)), name="assets")
 
     @app.get("/{full_path:path}")
-    def spa(_: str):
+    def spa(full_path: str):
         return FileResponse(str(STATIC / "index.html"))
 else:
     @app.get("/")
